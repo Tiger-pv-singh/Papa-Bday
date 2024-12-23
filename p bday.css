@@ -1,0 +1,127 @@
+body {
+    font-family: 'Pacifico', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #ffcc33, #ff6699);
+    overflow: hidden;
+    position: relative;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    position: absolute; /* Make sure the card stays centered */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure the card is above the balloons */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #ff6347;
+}
+
+.message {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.decoration {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.symbol {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.camera {
+    background-image: url('https://via.placeholder.com/100?text=Camera');
+}
+
+.window {
+    background-image: url('https://via.placeholder.com/100?text=Window');
+}
+
+.balloon-container {
+    position: fixed; /* Ensure the balloons stay within the viewport */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 50px;
+    height: 70px;
+    background-color: red;
+    border-radius: 50% 50% 50% 50%; /* Make the bottom curved */
+    animation: float 10s linear infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #333;
+    transform: translateX(-50%);
+}
+
+.balloon:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.balloon:nth-child(2) {
+    left: 30%;
+    background-color: blue;
+    animation-delay: 2s;
+}
+
+.balloon:nth-child(3) {
+    left: 50%;
+    background-color: green;
+    animation-delay: 4s;
+}
+
+.balloon:nth-child(4) {
+    left: 70%;
+    background-color: yellow;
+    animation-delay: 6s;
+}
+
+.balloon:nth-child(5) {
+    left: 90%;
+    background-color: pink;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-110vh);
+    }
+}
